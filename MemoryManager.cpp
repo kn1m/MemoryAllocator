@@ -109,14 +109,14 @@ void MemoryManager::fix_free_space()
         second_border = it.second;
     }
     second_border = -1;
-    for (auto it=pool_adress_table.begin(); it!=pool_adress_table.end(); ++it)
+    for (auto& it: pool_adress_table)
     {
-        if (first_border == it->first)
+        if (first_border == it.first)
         {
-            pool_adress_table[second_border] = it->second;
-            pool_adress_table.erase(it);
+            pool_adress_table[second_border] = it.second;
+            pool_adress_table.erase(it.first);
         }
-        second_border = it->first;
-        first_border = it->second;
+        second_border = it.first;
+        first_border = it.second;
     }
 }
