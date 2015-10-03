@@ -21,9 +21,6 @@ int main() {
     manager.free(block1);
     manager.dump();
 
-    manager.free(block3);
-    manager.dump();
-
     void *block7 = manager.realloc(block2, 3000);
     manager.dump();
 
@@ -31,6 +28,9 @@ int main() {
     manager.dump();
 
     manager.free(block7);
+    manager.dump();
+
+    manager.free(block3);
     manager.dump();
 
     return EXIT_SUCCESS;
